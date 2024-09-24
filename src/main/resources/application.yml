@@ -1,0 +1,27 @@
+#端口
+server:
+  port: 8888
+
+#数据库配置
+spring:
+  redis:
+    host: localhost    # Redis服务器地址
+    database: 0         # Redis数据库索引（默认为0）
+    port: 6379          # Redis服务器连接端口
+#    password: ld123456  # Redis服务器连接密码（默认为空）
+  datasource:
+    url: jdbc:mysql://localhost:3306/tmp_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#打印日志
+logging:
+  level:
+    com.donleo.cache.mapper: debug
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.itheima.cache.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
